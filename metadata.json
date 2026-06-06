@@ -1,0 +1,6 @@
+{
+  "name": "Cardify Pro",
+  "description": "Comprehensive school administration and learning platform for schools.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

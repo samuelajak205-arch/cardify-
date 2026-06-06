@@ -1,0 +1,58 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "User profile information",
+      "type": "object",
+      "properties": {
+        "email": { "type": "string" },
+        "role": { "type": "string", "enum": ["student", "parent", "teacher", "bursar", "admin"] },
+        "class": { "type": "string" },
+        "displayName": { "type": "string" },
+        "photoURL": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["email", "role"]
+    },
+    "AttendanceRecord": {
+      "title": "Attendance Record",
+      "description": "Daily attendance for students and teachers",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "status": { "type": "string", "enum": ["present", "absent", "late"] },
+        "date": { "type": "string", "format": "date" },
+        "type": { "type": "string", "enum": ["student", "teacher"] },
+        "markedBy": { "type": "string" }
+      },
+      "required": ["userId", "status", "date", "type"]
+    },
+    "FeeRecord": {
+      "title": "Fee Record",
+      "description": "Fee payment and balance information for students",
+      "type": "object",
+      "properties": {
+        "studentId": { "type": "string" },
+        "totalAmount": { "type": "number" },
+        "paidAmount": { "type": "number" },
+        "balance": { "type": "number" },
+        "lastPaymentDate": { "type": "string", "format": "date-time" }
+      },
+      "required": ["studentId", "totalAmount", "paidAmount", "balance"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "User",
+      "description": "Collection of user profiles"
+    },
+    "/attendance/{attendanceId}": {
+      "schema": "AttendanceRecord",
+      "description": "Collection of attendance records"
+    },
+    "/fees/{feeId}": {
+      "schema": "FeeRecord",
+      "description": "Collection of fee records"
+    }
+  }
+}

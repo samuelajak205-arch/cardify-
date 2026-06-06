@@ -1,0 +1,86 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-card-bg: var(--card-bg);
+  --color-card-border: var(--card-border);
+  --color-brand-blue: #2563eb;
+  --color-brand-dark: #0f172a;
+}
+
+@layer base {
+  :root {
+    /* Default Blue Theme */
+    --primary: #2563eb;
+    --primary-foreground: #ffffff;
+    --accent: #eff6ff;
+    --accent-foreground: #1e40af;
+    --card-bg: #ffffff;
+    --card-border: #e2e8f0;
+    --sidebar-bg: #ffffff;
+    --sidebar-foreground: #475569;
+    --sidebar-active: #eff6ff;
+    --sidebar-active-foreground: #2563eb;
+  }
+
+  .theme-emerald {
+    --primary: #059669;
+    --primary-foreground: #ffffff;
+    --accent: #ecfdf5;
+    --accent-foreground: #065f46;
+    --sidebar-active: #ecfdf5;
+    --sidebar-active-foreground: #059669;
+  }
+
+  .theme-indigo {
+    --primary: #4f46e5;
+    --primary-foreground: #ffffff;
+    --accent: #eef2ff;
+    --accent-foreground: #3730a3;
+    --sidebar-active: #eef2ff;
+    --sidebar-active-foreground: #4f46e5;
+  }
+
+  .theme-rose {
+    --primary: #e11d48;
+    --primary-foreground: #ffffff;
+    --accent: #fff1f2;
+    --accent-foreground: #9f1239;
+    --sidebar-active: #fff1f2;
+    --sidebar-active-foreground: #e11d48;
+  }
+
+  .theme-midnight {
+    --primary: #3b82f6;
+    --primary-foreground: #ffffff;
+    --accent: #1e293b;
+    --accent-foreground: #f8fafc;
+    --sidebar-bg: #1e293b; /* Adjusted slightly from base */
+    --sidebar-foreground: #94a3b8;
+    --sidebar-active: #334155;
+    --sidebar-active-foreground: #3b82f6;
+    --card-bg: #1e293b;
+    --card-border: #334155;
+  }
+
+  body {
+    @apply antialiased text-gray-900 bg-slate-50 transition-colors duration-300;
+  }
+}
+
+@layer components {
+  .pro-card {
+    @apply bg-white rounded-2xl border border-card-border shadow-sm overflow-hidden hover:shadow-md transition-all duration-300;
+  }
+  
+  .glass-effect {
+    @apply bg-white/80 backdrop-blur-md border border-white/20;
+  }
+
+  .btn-primary {
+    @apply px-4 py-2 bg-primary text-primary-foreground rounded-xl font-medium transition-all hover:opacity-90 active:scale-95;
+  }
+}
